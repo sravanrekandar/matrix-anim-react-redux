@@ -1,0 +1,99 @@
+:global {
+  @import 'base';
+  @import 'vendor/normalize';
+
+  $font-stack:    Helvetica, sans-serif;
+  $bgColor: #270707;
+  $fgColor: #D25858;
+  $fgColorVariant: #FF8484;
+  $inputBgColor: #612D2D;
+  $inputBgColorVariant: #713D3D;
+
+  // Some best-practice CSS that's useful for most apps
+  // Just remove them if they're not what you want
+  html {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    font: 100% $font-stack;
+    background-color: $bgColor;
+    color: $fgColor;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  hr {
+    border-color: $fgColor;
+  }
+  
+  a {
+    color: $fgColor;
+  }
+
+  a:hover {
+    color: $fgColorVariant;
+  }
+
+  #git-link {
+    width: 30px;
+    height: 30px;
+    background-color: $fgColor;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px;    
+  }
+
+  svg.git-icon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: $bgColor;
+  } 
+
+  input, button {
+    background-color: $inputBgColor;
+  }
+
+  input:hover, button:hover {
+    background-color: $inputBgColorVariant;
+  }
+
+  [type="number"] {
+   width: 30px;
+   border: none;
+   outline: none;
+   width: 38px;
+  }
+
+  #reset {
+    right: 0;
+    top: -21px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .matrix-container { 
+    position: relative;
+    margin: 10px auto;
+    border: double $fgColor;
+    border-radius: 5px;
+  }
+
+  .cell {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: $fgColor;
+    color: $bgColor;
+    border-radius: 15px;
+  }
+}
