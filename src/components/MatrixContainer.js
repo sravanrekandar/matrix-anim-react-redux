@@ -4,20 +4,20 @@ import Cell from './Cell'
 
 export default class MatrixContainer extends Component {
   static propTypes = {
-    cells: PropTypes.array.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired
+    cells: PropTypes.object.isRequired,
+    containerMeasurements: PropTypes.object.isRequired
   };
   render () {
-    const { width, height, cells } = this.props
+    const { containerMeasurements, cells } = this.props
     const containerStyle = {
-      width: `${width}px`,
-      height: `${height}px`
+      width: `${containerMeasurements.get('width')}px`,
+      height: `${containerMeasurements.get('height')}px`
     }
+    console.log('MatrixContainer')
     return (
       <div className='matrix-container' style={containerStyle}>
         {
-          cells.map((cell, idx) => {
+          cells.toJS().map((cell, idx) => {
             const { id, coordinates, text } = cell
             const key = `cell-${id}`
             return <Cell key={key} text={text} coordinates={coordinates} />

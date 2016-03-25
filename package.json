@@ -65,7 +65,7 @@
   "license": "MIT",
   "dependencies": {
     "debug": "^2.2.0",
-    "history": "^2.0.0",
+    "immutable": "^3.7.6",
     "koa": "^2.0.0-alpha.3",
     "koa-connect-history-api-fallback": "^0.3.0",
     "koa-convert": "^1.2.0",
@@ -76,10 +76,7 @@
     "react-dom": "^0.14.0",
     "react-motion": "^0.4.2",
     "react-redux": "^4.0.0",
-    "react-router": "^2.0.0",
-    "react-router-redux": "^4.0.0",
     "redux": "^3.0.0",
-    "redux-thunk": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",

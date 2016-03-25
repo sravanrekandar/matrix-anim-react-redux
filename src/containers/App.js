@@ -2,13 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { Header, Footer, Form, MatrixContainer } from '../components'
-import { rowCountChange, columnCountChange } from '../actions/matrix'
+import { startOver, rowCountChange, columnCountChange } from '../actions/matrix'
 
 class App extends Component {
   static propTypes = {
     rowCount: PropTypes.number.isRequired,
     columnCount: PropTypes.number.isRequired,
-    cells: PropTypes.array.isRequired,
+    cells: PropTypes.object.isRequired,
     containerMeasurements: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired
   };
@@ -19,7 +19,10 @@ class App extends Component {
     this.onColumnCountChange = this.onColumnCountChange.bind(this)
     this.onStartOver = this.onStartOver.bind(this)
   }
-
+  componentDidMount () {
+    const { dispatch } = this.props
+    dispatch(startOver(dispatch))
+  }
   render () {
     const { onRowCountChange, onColumnCountChange, onStartOver } = this
     const { cells, rowCount, columnCount, containerMeasurements } = this.props
@@ -35,8 +38,7 @@ class App extends Component {
           onStartOver={onStartOver}/>
         <MatrixContainer
           cells={cells}
-          width={containerMeasurements.width}
-          height={containerMeasurements.height}/>
+          containerMeasurements={containerMeasurements}/>
         <Footer />
       </div>
     )
@@ -50,12 +52,17 @@ class App extends Component {
     dispatch(columnCountChange(columnCount))
   }
   onStartOver () {
-    console.log('Start over')
+    const { dispatch } = this.props
+    dispatch(startOver(dispatch))
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { cells, containerMeasurements, rowCount, columnCount } = state.matrix
+  const { matrix } = state
+  const cells = matrix.get('cells')
+  const containerMeasurements = matrix.get('containerMeasurements')
+  const rowCount = matrix.get('rowCount')
+  const columnCount = matrix.get('columnCount')
 
   return { cells, containerMeasurements, rowCount, columnCount }
 }

@@ -1,6 +1,9 @@
+import { fromJS, List } from 'immutable'
+
 import {
   generateMatrix,
   generateViewModel,
+  getNextViewModel,
   getContainerMeasurements,
   getCellCoordinatesInPixels
 } from '../data-utils'
@@ -15,7 +18,8 @@ import {
 import {
   ROW_COUNT_CHANGE,
   COLUMN_COUNT_CHANGE,
-  START_OVER
+  START_OVER,
+  NEXT_TICK
 } from '../actions/matrix'
 
 let rowCount = DEFAULT_ROWS
@@ -30,26 +34,44 @@ const getFreshState = () => {
     cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
   })
 
-  return {
+  return fromJS({
     rowCount,
     columnCount,
     cells,
     containerMeasurements
-  }
+  })
 }
 
 const matrixApp = (state = getFreshState(), action) => {
+  let cells
+  let nextState
+
   switch (action.type) {
     case ROW_COUNT_CHANGE:
       rowCount = action.count
-      return getFreshState()
+      nextState = getFreshState()
+      return nextState
 
     case COLUMN_COUNT_CHANGE:
       columnCount = action.count
-      return getFreshState()
+      nextState = getFreshState()
+      return nextState
 
     case START_OVER:
-      return getFreshState()
+      nextState = getFreshState()
+      return nextState
+
+    case NEXT_TICK:
+      const oldCells = state.get('cells').toJS()
+      cells = getNextViewModel(oldCells)
+
+      cells.forEach((cell) => {
+        cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
+      })
+
+      nextState = state.set('cells', List(cells))
+      return nextState
+
     default:
       return state
   }
