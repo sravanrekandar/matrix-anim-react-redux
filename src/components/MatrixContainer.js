@@ -13,7 +13,6 @@ export default class MatrixContainer extends Component {
       width: `${containerMeasurements.get('width')}px`,
       height: `${containerMeasurements.get('height')}px`
     }
-    
     return (
       <div className='matrix-container' style={containerStyle}>
         {
