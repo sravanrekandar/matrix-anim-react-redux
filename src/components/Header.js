@@ -13,7 +13,10 @@ module.exports = (props) => {
         </a>
       </h1>
       <div className='text-center'>
-        This is one of the series of exercises to understand the <strong> Data state management using different JS frameworks / libs</strong> This exercise uses React and Redux
+        <p>This is one of the series of exercises to understand the <strong> Data state management using different JS frameworks / libs</strong>
+          <br />
+          This exercise uses React and Redux
+        </p>
       </div>
     </div>
   )

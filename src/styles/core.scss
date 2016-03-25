@@ -3,11 +3,11 @@
   @import 'vendor/normalize';
 
   $font-stack:    Helvetica, sans-serif;
-  $bgColor: #270707;
-  $fgColor: #D25858;
+  $bgColor: #70001A;
+  $fgColor: #FF9393;
   $fgColorVariant: #FF8484;
-  $inputBgColor: #612D2D;
-  $inputBgColorVariant: #713D3D;
+  $inputBgColor: #5D0E0E;
+  $inputBgColorVariant: #962C2C;
 
   // Some best-practice CSS that's useful for most apps
   // Just remove them if they're not what you want
@@ -20,10 +20,11 @@
     margin: 0;
     padding: 0;
     height: 100%;
-
-    font: 100% $font-stack;
-    background-color: $bgColor;
     color: $fgColor;
+    text-shadow: 2px 2px 2px #690101;
+    background: rgba(54,2,14,1);
+    background: linear-gradient(to right, rgba(54,2,14,1) 0%, rgba(158,2,38,1) 44%, rgba(109,0,25,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36020e', endColorstr='#6d0019', GradientType=1 );
   }
 
   .text-center {
@@ -94,7 +95,15 @@
     line-height: 30px;
     text-align: center;
     background-color: $fgColor;
-    color: $bgColor;
+    background: linear-gradient(to bottom, #bc2747 0%,#8f0222 44%,#5b000f 100%);
+    
     border-radius: 15px;
+  }
+
+  .sravan-pic {
+    display: inline-block;
+    box-shadow: 2px 2px 2px #400000;
+    padding: 5px;
+    border-radius: 2px;
   }
 }
