@@ -6,6 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div id="root" style="height: 100%"></div>
+    <nav class="nav">
+        <style>
+            nav.nav {
+                height: 30px;
+                line-height: 30px;
+                padding: 0 15px;
+                display: block;
+                background: linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(43,43,43,1) 27%, rgba(28,28,28,1) 76%, rgba(19,19,19,1) 100%);
+                color: beige;
+            }
+            .nav .home-link {
+                color: beige;
+                text-decoration: none; 
+            }
+            .nav .home-link:hover {
+                color: white;
+            }
+        </style>
+        <div>
+            <a href="http://sravanrekandar.com/" class="home-link">SravanRekandar.com</a>
+        </div>
+    </nav>
+  <div id="root"></div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { Header, Footer, Form, MatrixContainer } from '../components'
+import { Header, Footer, Form, MatrixContainer, Description } from '../components'
 import { startOver, rowCountChange, columnCountChange } from '../actions/matrix'
 
 class App extends Component {
@@ -39,6 +39,9 @@ class App extends Component {
         <MatrixContainer
           cells={cells}
           containerMeasurements={containerMeasurements}/>
+
+        <Description />
+        <hr />
         <Footer />
       </div>
     )
