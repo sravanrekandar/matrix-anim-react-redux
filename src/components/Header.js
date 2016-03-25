@@ -8,7 +8,7 @@ module.exports = (props) => {
       <h1 className='text-center'>
         Matrix Anim using React and Redux
         {' '}
-        <a id='git-link' target='blank' href='https://github.com/sravanrekandar/matrix-anim-jquery'>
+        <a id='git-link' target='blank' href='https://github.com/sravanrekandar/matrix-anim-react-redux'>
           <GitIcon />
         </a>
       </h1>
