@@ -5,7 +5,8 @@ import {
   generateViewModel,
   getNextViewModel,
   getContainerMeasurements,
-  getCellCoordinatesInPixels
+  // getCellCoordinatesInPixels,
+  getCellCoordinates
 } from '../data-utils'
 
 import {
@@ -31,7 +32,8 @@ const getFreshState = () => {
   const containerMeasurements = getContainerMeasurements(rowCount, columnCount, CELL_SIZE, GUTTER)
 
   cells.forEach((cell) => {
-    cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
+    // cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
+    cell.coordinates = getCellCoordinates(cell.position, CELL_SIZE, GUTTER)
   })
 
   return fromJS({
@@ -66,7 +68,8 @@ const matrixApp = (state = getFreshState(), action) => {
       cells = getNextViewModel(oldCells)
 
       cells.forEach((cell) => {
-        cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
+        // cell.coordinates = getCellCoordinatesInPixels(cell.position, CELL_SIZE, GUTTER)
+        cell.coordinates = getCellCoordinates(cell.position, CELL_SIZE, GUTTER)
       })
 
       nextState = state.set('cells', List(cells))

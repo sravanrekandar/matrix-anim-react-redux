@@ -3,7 +3,8 @@ import {
   generateViewModel,
   getNextViewModel,
   getContainerMeasurements,
-  getCellCoordinatesInPixels
+  getCellCoordinatesInPixels,
+  getCellCoordinates
 } from './view-model-controls'
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
   generateViewModel,
   getNextViewModel,
   getContainerMeasurements,
-  getCellCoordinatesInPixels
+  getCellCoordinatesInPixels,
+  getCellCoordinates
 }

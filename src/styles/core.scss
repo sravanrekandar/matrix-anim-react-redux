@@ -72,10 +72,11 @@
    width: 38px;
   }
 
-  #reset {
+  .reset-btn {
     right: 0;
     top: -21px;
     border: none;
+    outline: none;
     cursor: pointer;
   }
 

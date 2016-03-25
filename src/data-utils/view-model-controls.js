@@ -133,3 +133,12 @@ export function getCellCoordinatesInPixels (position, CELL_SIZE, GUTTER) {
     left: `${left}px`
   }
 }
+
+export function getCellCoordinates (position, CELL_SIZE, GUTTER) {
+  const x = (CELL_SIZE * position.x) + ((position.x + 1) * GUTTER)
+  const y = (CELL_SIZE * position.y) + ((position.y + 1) * GUTTER)
+  return {
+    x,
+    y
+  }
+}

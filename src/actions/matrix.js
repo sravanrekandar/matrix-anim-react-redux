@@ -1,15 +1,27 @@
+import { TICK_INTERVAL, MAX_TICK_COUNT } from '../constants'
 export const ROW_COUNT_CHANGE = 'ROW_COUNT_CHANGE'
 export const COLUMN_COUNT_CHANGE = 'COLUMN_COUNT_CHANGE'
 export const START_OVER = 'START_OVER'
 export const NEXT_TICK = 'NEXT_TICK'
 
 let timerInterval
+let tickCount = 0
+
+function stopTimer () {
+  clearInterval(timerInterval)
+  tickCount = 0
+}
 
 function startTimer (dispatch) {
-  clearInterval(timerInterval)
+  stopTimer()
+
   timerInterval = setInterval(() => {
+    if (MAX_TICK_COUNT < ++tickCount) {
+      stopTimer()
+    }
+
     dispatch(nextTick())
-  }, 1000)
+  }, TICK_INTERVAL)
 }
 
 export function rowCountChange (rowCount) {

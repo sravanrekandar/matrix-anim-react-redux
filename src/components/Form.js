@@ -46,6 +46,7 @@ export default class Form extends Component {
         </label>
         {' '}
         <button
+          className='reset-btn'
           ref='reset'
           onClick={onStartOver}>Start Again</button>
       </div>
